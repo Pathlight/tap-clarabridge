@@ -1,0 +1,630 @@
+{
+  "streams": [
+    {
+      "tap_stream_id": "mentions",
+      "replication_key": "date",
+      "key_properties": [
+        "unique_id"
+      ],
+      "schema": {
+        "properties": {
+          "unique_id": {
+            "type": "string"
+          },
+          "author": {
+            "properties": {
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "fullname": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "id": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "url": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "img": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "managed": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "tags": {
+                "type": [
+                  "null",
+                  "array"
+                ]
+              }
+            },
+            "type": "object"
+          },
+          "original_author": {
+            "properties": {
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "fullname": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "id": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "url": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "img": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": "object"
+          },
+          "message": {
+            "properties": {
+              "title": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "content": {
+                "type": "string"
+              },
+              "entities": {
+                "properties": {
+                  "hashtag": {
+                    "type": [
+                      "null",
+                      "array"
+                    ]
+                  },
+                  "url": {
+                    "type": [
+                      "null",
+                      "array"
+                    ]
+                  },
+                  "user": {
+                    "type": [
+                      "null",
+                      "array"
+                    ]
+                  }
+                },
+                "type": "object"
+              },
+              "attachments": {
+                "type": [
+                  "null",
+                  "array"
+                ]
+              },
+              "language": {
+                "type": "string"
+              },
+              "sentiment": {
+                "type": "string"
+              },
+              "type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": "object"
+          },
+          "source": {
+            "properties": {
+              "category": {
+                "type": "string"
+              },
+              "service": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "id": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "in_reply_to_message_id": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "domain": {
+                "type": "string"
+              },
+              "url": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "application": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "profile": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "profile_name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "identifiers": {
+                "properties": {
+                  "clarabridge": {
+                    "type": [
+                      "null",
+                      "array"
+                    ]
+                  }
+                },
+                "type": "object"
+              },
+              "sender": {
+                "type": [
+                  "null",
+                  "object"
+                ],
+                "additionalProperties": true
+              }
+            },
+            "type": "object"
+          },
+          "location": {
+            "properties": {
+              "continent": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "country": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "city": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "region": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "longitude": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "latitude": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              }
+            },
+            "type": "object"
+          },
+          "tags": {
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "topic": {
+            "properties": {
+              "id": {
+                "type": "integer"
+              },
+              "name": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "project": {
+            "properties": {
+              "id": {
+                "type": "integer"
+              },
+              "name": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "status": {
+            "type": "string"
+          },
+          "permalink": {
+            "type": "string"
+          },
+          "assignment": {
+            "properties": {
+              "user_ids": {
+                "type": [
+                  "null",
+                  "array"
+                ]
+              },
+              "team_ids": {
+                "type": [
+                  "null",
+                  "array"
+                ]
+              },
+              "comments": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "assignees": {
+            "type": "array"
+          },
+          "actions": {
+            "type": "array"
+          },
+          "action_links": {
+            "type": "array"
+          },
+          "handled_by": {
+            "properties": {
+              "type": {
+                "type": "string"
+              },
+              "flow_id": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "timestamps": {
+            "properties": {
+              "response_time": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "response_time_during_bh": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "resolve_time": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "resolve_time_during_bh": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "handle_time": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              }
+            },
+            "type": "object"
+          },
+          "date": {
+            "properties": {
+              "added": {
+                "type": "integer"
+              },
+              "published": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              }
+            },
+            "type": "object"
+          },
+          "priority": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "additionalProperties": true
+          },
+          "extra_attributes": {
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "part_of_cases": {
+            "properties": {
+              "mention_identifiers": {
+                "type": [
+                  "null",
+                  "array"
+                ]
+              }
+            },
+            "type": "object"
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ],
+        "additionalProperties": true
+      },
+      "stream": "mentions",
+      "metadata": [
+        {
+          "breadcrumb": [],
+          "metadata": {
+            "table-key-properties": [
+              "unique_id"
+            ],
+            "valid-replication-keys": [
+              "date"
+            ],
+            "inclusion": "available",
+	    "selected": true
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "unique_id"
+          ],
+          "metadata": {
+            "inclusion": "automatic"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "author"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "original_author"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "message"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "source"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "location"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "tags"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "topic"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "project"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "status"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "permalink"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "assignment"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "assignees"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "actions"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "action_links"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "handled_by"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "timestamps"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "date"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "priority"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "extra_attributes"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "part_of_cases"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        }
+      ]
+    }
+  ]
+}

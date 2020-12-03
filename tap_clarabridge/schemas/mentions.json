@@ -1,0 +1,273 @@
+{
+    "type": ["null", "object"],
+    "additionalProperties": true,
+    "properties": {
+	"unique_id": {
+	    "type": "string"
+	},
+	"author": {
+	    "type": "object",
+	    "properties": {
+		"name": {
+		    "type": ["null", "string"]
+		},
+		"fullname": {
+		    "type": ["null", "string"]
+		},
+		"id": {
+		    "type": ["null", "string"]
+		},
+		"url": {
+		    "type": ["null", "string"]
+		},
+		"img": {
+		    "type": ["null", "string"]
+		},
+		"managed": {
+		    "type": ["null", "boolean"]
+		},
+		"tags": {
+		    "type": ["null", "array"]
+		}
+	    }
+	},
+	"original_author": {
+	    "type": "object",
+	    "properties": {
+		"name": {
+		    "type": ["null", "string"]
+		},
+		"fullname": {
+		    "type": ["null", "string"]
+		},
+		"id": {
+		    "type": ["null", "string"]
+		},
+		"url": {
+		    "type": ["null", "string"]
+		},
+		"img": {
+		    "type": ["null", "string"]
+		}
+	    }
+	},
+	"message": {
+	    "type": "object",
+	    "properties": {
+		"title": {
+		    "type": ["null", "string"]
+		},
+		"content": {
+		    "type": "string"
+		},
+		"entities": {
+		    "type": "object",
+		    "properties": {
+			"hashtag": {
+			    "type": ["null", "array"]
+			},
+			"url": {
+			    "type": ["null", "array"]
+			},
+			"user": {
+			    "type": ["null", "array"]
+			}
+		    }
+		},
+		"attachments": {
+		    "type": ["null", "array"]
+		},
+		"language": {
+		    "type": "string"
+		},
+		"sentiment": {
+		    "type": "string"
+		},
+		"type": {
+		    "type": ["null", "string"]
+		}
+	    }
+	},
+	"source": {
+	    "type": "object",
+	    "properties": {
+		"category": {
+		    "type": "string"
+		},
+		"service": {
+		    "type": "string"
+		},
+		"type": {
+		    "type": "string"
+		},
+		"id": {
+		    "type": ["null", "string"]
+		},
+		"in_reply_to_message_id": {
+		    "type": ["null", "string"]
+		},
+		"domain": {
+		    "type": "string"
+		},
+		"url": {
+		    "type": ["null", "string"]
+		},
+		"application": {
+		    "type": ["null", "string"]
+		},
+		"profile": {
+		    "type": ["null", "string"]
+		},
+		"profile_name": {
+		    "type": ["null", "string"]
+		},
+		"identifiers": {
+		    "type": "object",
+		    "properties": {
+			"clarabridge": {
+			    "type": ["null", "array"]
+			}
+		    }
+		},
+		"sender": {
+		    "type": ["null", "object"],
+		    "additionalProperties": true
+		}
+	    }
+	},
+	"location": {
+	    "type": "object",
+	    "properties": {
+		"continent": {
+		    "type": ["null", "string"]
+		},
+		"country": {
+		    "type": ["null", "string"]
+		},
+		"city": {
+		    "type": ["null", "string"]
+		},
+		"region": {
+		    "type": ["null", "string"]
+		},
+		"longitude": {
+		    "type": ["null", "number"]
+		},
+		"latitude": {
+		    "type": ["null", "number"]
+		}
+	    }
+	},
+	"tags": {
+	    "type": ["null", "array"]
+	},
+	"topic": {
+	    "type": "object",
+	    "properties": {
+		"id": {
+		    "type": "integer"
+		},
+		"name": {
+		    "type": "string"
+		}
+	    }
+	},
+	"project": {
+	    "type": "object",
+	    "properties": {
+		"id": {
+		    "type": "integer"
+		},
+		"name": {
+		    "type": "string"
+		}
+	    }
+	},
+	"status": {
+	    "type": "string"
+	},
+	"permalink": {
+	    "type": "string"
+	},
+	"assignment": {
+	    "type": "object",
+	    "properties": {
+		"user_ids": {
+		    "type": ["null", "array"]
+		},
+		"team_ids": {
+		    "type": ["null", "array"]
+		},
+		"comments": {
+		    "type": "string"
+		}
+	    }
+	},
+	"assignees": {
+	    "type": "array"
+	},
+	"actions": {
+	    "type": "array"
+	},
+	"action_links": {
+	    "type": "array"
+	},
+	"handled_by": {
+	    "type": ["null", "object"],
+	    "properties": {
+		"type": {
+		    "type": "string"
+		},
+		"flow_id": {
+		    "type": ["null", "string"]
+		}
+	    }
+	},
+	"timestamps": {
+	    "type": "object",
+	    "properties": {
+		"response_time": {
+		    "type": ["null", "integer"]
+		},
+		"response_time_during_bh": {
+		    "type": ["null", "integer"]
+		},
+		"resolve_time": {
+		    "type": ["null", "integer"]
+		},
+		"resolve_time_during_bh": {
+		    "type": ["null", "integer"]
+		},
+		"handle_time": {
+		    "type": ["null", "integer"]
+		}
+	    }
+	},
+	"date": {
+	    "type": "object",
+	    "properties": {
+		"added": {
+		    "type": "integer"
+		},
+		"published": {
+		    "type": ["null", "integer"]
+		}
+	    }
+	},
+	"priority": {
+	    "type": ["null", "object"],
+	    "additionalProperties": true
+	},
+	"extra_attributes": {
+	    "type": ["null", "array"]
+	},
+	"part_of_cases": {
+	    "type": "object",
+	    "properties": {
+		"mention_identifiers": {
+		    "type": ["null", "array"]
+		}
+	    }
+	}
+    }
+}
