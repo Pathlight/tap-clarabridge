@@ -1,10 +1,28 @@
 import requests
 import singer
 import time
-
+import urllib.parse
 
 LOGGER = singer.get_logger()
 
+def set_query_parameters(url, **params):
+    """ (Shamelessly stolen from fuji repo)
+    Given a URL, set or replace a query parameter and return the
+    modified URL.
+
+    >>> set_query_parameters('http://example.com?foo=bar&biz=baz', foo='stuff', bat='boots')
+    'http://example.com?foo=stuff&biz=baz&bat=boots'
+
+    """
+    scheme, netloc, path, query_string, fragment = urllib.parse.urlsplit(url)
+    query_params = urllib.parse.parse_qs(query_string)
+
+    new_query_string = query_string
+    for param_name, param_value in params.items():
+        query_params[param_name] = [param_value]
+        new_query_string = urllib.parse.urlencode(query_params, doseq=True)
+
+    return urllib.parse.urlunsplit((scheme, netloc, path, new_query_string, fragment))
 
 class ClarabridgeAPI:
     URL_TEMPLATE = 'https://api.engagor.com'
@@ -74,7 +92,7 @@ class ClarabridgeAPI:
 
         return resp.json()['response']
 
-    def paging_get(self, url, results_key='data'):
+    def paging_get(self, url, params, results_key='data'):
         """
         Iterates through all pages and yields results, one object at a time.
         """
@@ -83,7 +101,7 @@ class ClarabridgeAPI:
 
         while url and url not in urls:
             urls.add(url)
-            data = self.get(url, params={'limit': self.MAX_PAGE_SIZE})
+            data = self.get(url, params=params)
 
             LOGGER.info('clarabridge paging request', extra={
                 'total_size': data['count'],
@@ -98,6 +116,3 @@ class ClarabridgeAPI:
                 yield record
 
             url = data['paging']['next_url']
-
-    def get_users(self):
-        return self.paging_get('settings/users')

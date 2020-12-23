@@ -1,5 +1,7 @@
 import singer
 from .client import ClarabridgeAPI
+from datetime import datetime, timedelta
+import math
 
 
 LOGGER = singer.get_logger()
@@ -13,33 +15,33 @@ def sync(config, state, catalog):
     
     # Loop over selected streams in catalog
     for stream in catalog.get_selected_streams(state):
-        LOGGER.info("Syncing stream:" + stream.tap_stream_id)
-
-        bookmark_column = stream.replication_key
-        is_sorted = True  # TODO: indicate whether data is sorted ascending on bookmark value
+        LOGGER.info('Syncing stream:' + stream.tap_stream_id)
 
         singer.write_schema(
             stream_name=stream.tap_stream_id,
-            schema=stream.schema,
+            schema=stream.schema.to_dict(),
             key_properties=stream.key_properties,
         )
 
-        # TODO: delete and replace this inline function with your own data retrieval process:
-        tap_data = lambda: [{"id": x, "name": "row${x}"} for x in range(1000)]
+        if state:
+            bookmark = state[stream.tap_stream_id]
+        else:
+            bookmark = config['start_date']
 
-        max_bookmark = None
-        for row in tap_data():
-            # TODO: place type conversions or transformations here
+        url = 'inbox/mentions'
+        bookmark_date = datetime.fromtimestamp(bookmark)
+        last_action_minutes_ago = int(math.ceil((datetime.now() - bookmark_date).seconds / 60))
+        params = {
+            'date_from': bookmark_date - timedelta(days=90),
+            'sort': 'timestamps.action_last_date:asc',
+            'filter': f'status:alldone AND action_date_age:[0 TO {last_action_minutes_ago}]',
+            'limit': client.MAX_PAGE_SIZE,
+        }
 
-            # write one or more rows to the stream:
-            singer.write_records(stream.tap_stream_id, [row])
-            if bookmark_column:
-                if is_sorted:
-                    # update bookmark to latest value
-                    singer.write_state({stream.tap_stream_id: row[bookmark_column]})
-                else:
-                    # if data unsorted, save max value until end of writes
-                    max_bookmark = max(max_bookmark, row[bookmark_column])
-        if bookmark_column and not is_sorted:
-            singer.write_state({stream.tap_stream_id: max_bookmark})
+        for record in client.paging_get(url, params):
+            singer.write_record(stream.tap_stream_id, record)
+            # Assuming actions are sorted in desc chron order
+            new_bookmark = record['actions'][0]['date']['added']
+            singer.write_state({stream.tap_stream_id: new_bookmark})
+
     return

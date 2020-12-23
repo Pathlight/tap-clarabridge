@@ -6,8 +6,10 @@ from singer import utils, metadata
 from singer.catalog import Catalog, CatalogEntry
 from singer.schema import Schema
 
+from .sync import sync
 
-REQUIRED_CONFIG_KEYS = ["access_token", "account_id"]
+
+REQUIRED_CONFIG_KEYS = ["access_token", "account_id", "start_date"]
 LOGGER = singer.get_logger()
 
 
