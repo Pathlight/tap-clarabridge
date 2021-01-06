@@ -247,10 +247,12 @@
 	    "type": "object",
 	    "properties": {
 		"added": {
-		    "type": "integer"
+		    "type": "string",
+		    "format": "date-time"
 		},
 		"published": {
-		    "type": ["null", "integer"]
+		    "type": ["null", "integer"],
+		    "format": "date-time"
 		}
 	    }
 	},
