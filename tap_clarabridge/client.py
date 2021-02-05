@@ -88,7 +88,7 @@ class ClarabridgeAPI:
                         'account_id': self.account_id
                     })
                 else:
-                    raise Exception('Clarabridge query error: Max retries exceeded.')
+                    raise Exception(f'Clarabridge query error: {resp.text}')
 
         return resp.json()['response']
 
