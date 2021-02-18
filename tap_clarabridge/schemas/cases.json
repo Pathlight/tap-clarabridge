@@ -128,7 +128,7 @@
                     ]
                 },
                 "actions": {
-                    "type": "array",
+                    "type": ["null", "array"],
                     "items": {
                         "type": ["null", "object"],
                         "properties": {
@@ -159,7 +159,7 @@
                     }
                 },
                 "action_links": {
-                    "type": "array",
+                    "type": ["null", "array"],
                     "items": {
                         "type": ["null", "object"],
                         "properties": {
@@ -230,7 +230,7 @@
                         "managed": {
                             "type": [
                                 "null",
-                                "integer"
+                                "boolean"
                             ]
                         }
                     }
@@ -239,7 +239,7 @@
                     "type": ["null", "object"],
                     "properties": {
                         "user_ids": {
-                            "type": "array",
+                            "type": ["null", "array"],
                             "items": {
                                 "type": [
                                     "null",
@@ -248,7 +248,7 @@
                             }
                         },
                         "team_ids": {
-                            "type": "array",
+                            "type": ["null", "array"],
                             "items": {
                                 "type": [
                                     "null",
@@ -265,7 +265,7 @@
                     }
                 },
                 "assignees": {
-                    "type": "array",
+                    "type": ["null", "array"],
                     "items": {
                         "type": ["null", "object"],
                         "properties": {
@@ -293,7 +293,7 @@
             }
         },
         "linked_mentions": {
-            "type": "array",
+            "type": ["null", "array"],
             "items": {
                 "type": ["null", "object"],
                 "properties": {
@@ -422,7 +422,7 @@
                         ]
                     },
                     "actions": {
-                        "type": "array",
+                        "type": ["null", "array"],
                         "items": {
                             "type": ["null", "object"],
                             "properties": {
@@ -453,7 +453,7 @@
                         }
                     },
                     "action_links": {
-                        "type": "array",
+                        "type": ["null", "array"],
                         "items": {
                             "type": ["null", "object"],
                             "properties": {
@@ -524,7 +524,7 @@
                             "managed": {
                                 "type": [
                                     "null",
-                                    "integer"
+                                    "boolean"
                                 ]
                             }
                         }
@@ -533,7 +533,7 @@
                         "type": ["null", "object"],
                         "properties": {
                             "user_ids": {
-                                "type": "array",
+                                "type": ["null", "array"],
                                 "items": {
                                     "type": [
                                         "null",
@@ -542,7 +542,7 @@
                                 }
                             },
                             "team_ids": {
-                                "type": "array",
+                                "type": ["null", "array"],
                                 "items": {
                                     "type": [
                                         "null",
@@ -559,7 +559,7 @@
                         }
                     },
                     "assignees": {
-                        "type": "array",
+                        "type": ["null", "array"],
                         "items": {
                             "type": ["null", "object"],
                             "properties": {
