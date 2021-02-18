@@ -8,6 +8,19 @@ import pytz
 
 LOGGER = singer.get_logger()
 
+STREAM_CONFIGS = {
+    "mentions": {
+        "data_key": "data",
+        "key_properties": ["unique_id"],
+        "path": "inbox/mentions"
+    },
+    "cases": {
+        "data_key": "data",
+        "key_properties": ["case__unique_id"],
+        "path": "inbox/cases"
+    }
+}
+
 
 def transform_date(value):
     return singer_strftime(datetime.utcfromtimestamp(value).replace(tzinfo=pytz.UTC))
@@ -41,12 +54,11 @@ def sync(config, state, catalog):
             key_properties=stream.key_properties,
         )
 
-        if state:
-            bookmark = state[stream.tap_stream_id]
-        else:
+        bookmark = state.get(stream.tap_stream_id) if state else None
+        if not bookmark:
             bookmark = config['start_date']
 
-        url = 'inbox/mentions'
+        url = STREAM_CONFIGS[stream.tap_stream_id]['path']
         bookmark_date = datetime.fromtimestamp(bookmark)
         last_action_minutes_ago = int(math.ceil((datetime.now() - bookmark_date).seconds / 60))
         params = {
@@ -56,11 +68,14 @@ def sync(config, state, catalog):
             'limit': client.MAX_PAGE_SIZE,
         }
 
-        for record in client.paging_get(url, params):
+        for record in client.paging_get(url, params, STREAM_CONFIGS[stream.tap_stream_id]['data_key']):
             transformed_record = {k: transform_value(k, v) for (k, v) in record.items()}
             singer.write_record(stream.tap_stream_id, transformed_record)
             # Assuming actions are sorted in desc chron order
-            new_bookmark = record['actions'][0]['date']['added']
+            if stream.tap_stream_id == 'cases':
+                new_bookmark = record['case']['actions'][0]['date']['added']
+            else:
+                new_bookmark = record['actions'][0]['date']['added']
             singer.write_state({stream.tap_stream_id: new_bookmark})
 
     return
