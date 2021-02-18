@@ -1,0 +1,619 @@
+{
+    "type": ["null", "object"],
+    "additionalProperties": true,
+    "properties": {
+        "case": {
+            "type": ["null", "object"],
+            "properties": {
+                "id": {
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "unique_id": {
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "message": {
+                    "type": ["null", "object"],
+                    "properties": {
+                        "language": {
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "sentiment": {
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        }
+                    }
+                },
+                "source": {
+                    "type": ["null", "object"],
+                    "properties": {
+                        "category": {
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "type": {
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "service": {
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "id": {
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "domain": {
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "profile": {
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        }
+                }
+                },
+                "topic": {
+                    "type": ["null", "object"],
+                    "properties": {
+                        "id": {
+                            "type": [
+                                "null",
+                                "integer"
+                            ]
+                        },
+                        "name": {
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        }
+                    }
+                },
+                "project": {
+                    "type": ["null", "object"],
+                    "properties": {
+                        "id": {
+                            "type": [
+                                "null",
+                                "integer"
+                            ]
+                        },
+                        "name": {
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        }
+                    }
+                },
+                "status": {
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "permalink": {
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "handled_by": {
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "actions": {
+                    "type": ["null", "array"],
+                    "items": {
+                        "type": ["null", "object"],
+                        "properties": {
+                            "type": {
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            },
+                            "description": {
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            },
+                            "date": {
+                                "type": ["null", "object"],
+                                "properties": {
+                                    "added": {
+                                        "type": [
+                                            "null",
+                                            "integer"
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "action_links": {
+                    "type": ["null", "array"],
+                    "items": {
+                        "type": ["null", "object"],
+                        "properties": {
+                            "key": {
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            },
+                            "type": {
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            },
+                            "name": {
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            },
+                            "title": {
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            },
+                            "link": {
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "date": {
+                    "type": ["null", "object"],
+                    "properties": {
+                        "added": {
+                            "type": [
+                                "null",
+                                "integer"
+                            ]
+                        }
+                    }
+                },
+                "timestamps": {
+                    "type": ["null", "object"],
+                    "properties": {
+                        "handle_time": {
+                            "type": [
+                                "null",
+                                "integer"
+                            ]
+                        }
+                    }
+                },
+                "author": {
+                    "type": ["null", "object"],
+                    "properties": {
+                        "id": {
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "managed": {
+                            "type": [
+                                "null",
+                                "boolean"
+                            ]
+                        }
+                    }
+                },
+                "assignment": {
+                    "type": ["null", "object"],
+                    "properties": {
+                        "user_ids": {
+                            "type": ["null", "array"],
+                            "items": {
+                                "type": [
+                                    "null",
+                                    "integer"
+                                ]
+                            }
+                        },
+                        "team_ids": {
+                            "type": ["null", "array"],
+                            "items": {
+                                "type": [
+                                    "null",
+                                    "integer"
+                                ]
+                            }
+                        },
+                        "comments": {
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        }
+                    }
+                },
+                "assignees": {
+                    "type": ["null", "array"],
+                    "items": {
+                        "type": ["null", "object"],
+                        "properties": {
+                            "id": {
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            },
+                            "display_name": {
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            },
+                            "type": {
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "linked_mentions": {
+            "type": ["null", "array"],
+            "items": {
+                "type": ["null", "object"],
+                "properties": {
+                    "id": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "unique_id": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "message": {
+                        "type": ["null", "object"],
+                        "properties": {
+                            "language": {
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            },
+                            "sentiment": {
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            }
+                        }
+
+                    },
+                    "source": {
+                        "type": ["null", "object"],
+                        "properties": {
+                            "category": {
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            },
+                            "type": {
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            },
+                            "service": {
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            },
+                            "id": {
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            },
+                            "domain": {
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            },
+                            "profile": {
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            }
+                        }
+                    },
+                    "topic": {
+                        "type": ["null", "object"],
+                        "properties": {
+                            "id": {
+                                "type": [
+                                    "null",
+                                    "integer"
+                                ]
+                            },
+                            "name": {
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            }
+                        }
+                    },
+                    "project": {
+                        "type": ["null", "object"],
+                        "properties": {
+                            "id": {
+                                "type": [
+                                    "null",
+                                    "integer"
+                                ]
+                            },
+                            "name": {
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            }
+                        }
+
+                    },
+                    "status": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "permalink": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "handled_by": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "actions": {
+                        "type": ["null", "array"],
+                        "items": {
+                            "type": ["null", "object"],
+                            "properties": {
+                                "type": {
+                                    "type": [
+                                        "null",
+                                        "string"
+                                    ]
+                                },
+                                "description": {
+                                    "type": [
+                                        "null",
+                                        "string"
+                                    ]
+                                },
+                                "date": {
+                                    "type": ["null", "object"],
+                                    "properties": {
+                                        "added": {
+                                            "type": [
+                                                "null",
+                                                "integer"
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "action_links": {
+                        "type": ["null", "array"],
+                        "items": {
+                            "type": ["null", "object"],
+                            "properties": {
+                                "key": {
+                                    "type": [
+                                        "null",
+                                        "string"
+                                    ]
+                                },
+                                "type": {
+                                    "type": [
+                                        "null",
+                                        "string"
+                                    ]
+                                },
+                                "name": {
+                                    "type": [
+                                        "null",
+                                        "string"
+                                    ]
+                                },
+                                "title": {
+                                    "type": [
+                                        "null",
+                                        "string"
+                                    ]
+                                },
+                                "link": {
+                                    "type": [
+                                        "null",
+                                        "string"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "date": {
+                        "type": ["null", "object"],
+                        "properties": {
+                            "added": {
+                                "type": [
+                                    "null",
+                                    "integer"
+                                ]
+                            }
+                        }
+                    },
+                    "timestamps": {
+                        "type": ["null", "object"],
+                        "properties": {
+                            "handle_time": {
+                                "type": [
+                                    "null",
+                                    "integer"
+                                ]
+                            }
+                        }
+                    },
+                    "author": {
+                        "type": ["null", "object"],
+                        "properties": {
+                            "id": {
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            },
+                            "managed": {
+                                "type": [
+                                    "null",
+                                    "boolean"
+                                ]
+                            }
+                        }
+                    },
+                    "assignment": {
+                        "type": ["null", "object"],
+                        "properties": {
+                            "user_ids": {
+                                "type": ["null", "array"],
+                                "items": {
+                                    "type": [
+                                        "null",
+                                        "integer"
+                                    ]
+                                }
+                            },
+                            "team_ids": {
+                                "type": ["null", "array"],
+                                "items": {
+                                    "type": [
+                                        "null",
+                                        "integer"
+                                    ]
+                                }
+                            },
+                            "comments": {
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            }
+                        }
+                    },
+                    "assignees": {
+                        "type": ["null", "array"],
+                        "items": {
+                            "type": ["null", "object"],
+                            "properties": {
+                                "id": {
+                                    "type": [
+                                        "null",
+                                        "string"
+                                    ]
+                                },
+                                "display_name": {
+                                    "type": [
+                                        "null",
+                                        "string"
+                                    ]
+                                },
+                                "type": {
+                                    "type": [
+                                        "null",
+                                        "string"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+                            }
+        },
+        "contact": {
+            "type": ["null", "object"],
+            "properties": {
+                "id": {
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "date": {
+                    "type": ["null", "object"],
+                    "properties": {
+                        "added": {
+                            "type": [
+                                "null",
+                                "integer"
+                            ]
+                        },
+                        "updated": {
+                            "type": [
+                                "null",
+                                "integer"
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

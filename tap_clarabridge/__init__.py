@@ -6,7 +6,7 @@ from singer import utils, metadata
 from singer.catalog import Catalog, CatalogEntry
 from singer.schema import Schema
 
-from .sync import sync
+from .sync import sync, STREAM_CONFIGS
 
 
 REQUIRED_CONFIG_KEYS = ["access_token", "account_id", "start_date"]
@@ -33,7 +33,7 @@ def discover():
     streams = []
     for stream_id, schema in raw_schemas.items():
         # TODO: populate any metadata and stream's key properties here..
-        key_properties = ['unique_id']
+        key_properties = STREAM_CONFIGS[stream_id]['key_properties']
         stream_metadata = metadata.get_standard_metadata(
             schema=schema.to_dict(),
             key_properties=key_properties,
