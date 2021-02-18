@@ -72,7 +72,7 @@ class ClarabridgeAPI:
                     # Hmm I don't think there's any point in retrying if we got rate-limited,
                     # as the limit will only reset in an hour (assuming it was just crossed)
                     limit_remaining = resp.headers['x-ratelimit-remaining']
-                    until_reset = resp.headers['x-ratelimit-reset'] - time.time()
+                    until_reset = int(resp.headers['x-ratelimit-reset']) - time.time()
                     LOGGER.info('api query clarabridge rate limit', extra={
                         'limit_remaining': limit_remaining,
                         'until_reset': until_reset,
