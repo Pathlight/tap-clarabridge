@@ -202,8 +202,9 @@
                         "added": {
                             "type": [
                                 "null",
-                                "integer"
-                            ]
+                                "string"
+                            ],
+                            "format": "date-time"
                         }
                     }
                 },
@@ -602,14 +603,16 @@
                         "added": {
                             "type": [
                                 "null",
-                                "integer"
-                            ]
+                                "string"
+                            ],
+                            "format": "date-time"
                         },
                         "updated": {
                             "type": [
                                 "null",
-                                "integer"
-                            ]
+                                "string"
+                            ],
+                            "format": "date-time'"
                         }
                     }
                 }
