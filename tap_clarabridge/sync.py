@@ -76,6 +76,7 @@ def sync(config, state, catalog):
                 new_bookmark = record['case']['actions'][0]['date']['added']
             else:
                 new_bookmark = record['actions'][0]['date']['added']
-            singer.write_state({stream.tap_stream_id: new_bookmark})
+            state[stream.tap_stream_id] = new_bookmark
+            singer.write_state(state)
 
     return
