@@ -28,12 +28,15 @@ def transform_date(value):
 
 def transform_value(key, value):
     date_fields = set(['date'])
+    nested_dates = set(['case', 'contact'])  # keys which contain dates nested within
 
     if key in date_fields:
         if type(value) == dict:
             value = {k: transform_date(v) for (k, v) in value.items()}
         elif type(value) == int:
             value = transform_date(value)
+    elif key in nested_dates:
+        value['date'] = {k: transform_date(v) for (k, v) in value['date'].items()}
 
     return value
 
