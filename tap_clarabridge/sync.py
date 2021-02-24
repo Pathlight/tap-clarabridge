@@ -28,12 +28,15 @@ def transform_date(value):
 
 def transform_value(key, value):
     date_fields = set(['date'])
+    nested_dates = set(['case', 'contact'])  # keys which contain dates nested within
 
     if key in date_fields:
         if type(value) == dict:
             value = {k: transform_date(v) for (k, v) in value.items()}
         elif type(value) == int:
             value = transform_date(value)
+    elif key in nested_dates:
+        value['date'] = {k: transform_date(v) for (k, v) in value['date'].items()}
 
     return value
 
@@ -76,6 +79,7 @@ def sync(config, state, catalog):
                 new_bookmark = record['case']['actions'][0]['date']['added']
             else:
                 new_bookmark = record['actions'][0]['date']['added']
-            singer.write_state({stream.tap_stream_id: new_bookmark})
+            state[stream.tap_stream_id] = new_bookmark
+            singer.write_state(state)
 
     return
