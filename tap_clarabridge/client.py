@@ -24,11 +24,13 @@ def set_query_parameters(url, **params):
 
     return urllib.parse.urlunsplit((scheme, netloc, path, new_query_string, fragment))
 
+
 class ClarabridgeAPI:
     URL_TEMPLATE = 'https://api.engagor.com'
     MAX_RETRIES = 5
     RETRY_TIMEOUT = 10
     MAX_PAGE_SIZE = 100
+    DEFAULT_RESET = 60
 
     def __init__(self, config):
         self.access_token = config['access_token']
@@ -72,16 +74,25 @@ class ClarabridgeAPI:
                     # Hmm I don't think there's any point in retrying if we got rate-limited,
                     # as the limit will only reset in an hour (assuming it was just crossed)
                     limit_remaining = resp.headers['x-ratelimit-remaining']
-                    until_reset = int(resp.headers['x-ratelimit-reset']) - time.time()
+                    # clarabridge documentation implies we should receive a
+                    # unix timestamp of when the counter will be reset, however
+                    # in practice we see this is not always the case
+                    ratelimit_reset = resp.headers.get('x-ratelimit-reset')
+                    if ratelimit_reset:
+                        until_reset = int(ratelimit_reset) - time.time()
+                    else:
+                        until_reset = self.DEFAULT_RESET
                     LOGGER.info('api query clarabridge rate limit', extra={
                         'limit_remaining': limit_remaining,
                         'until_reset': until_reset,
                         'account_id': self.account_id
                     })
                     if (until_reset <= self.RETRY_TIMEOUT):
+                        LOGGER.info(f'Clarabridge API request resetting in {int(self.RETRY_TIMEOUT / 60)} minutes.')
                         time.sleep(self.RETRY_TIMEOUT)
                     else:
-                        raise Exception(f'Clarabridge query error: Rate limit reached, resetting in {int(until_reset / 60)} minutes.')
+                        LOGGER.info(f'Clarabridge API request resetting in {int(until_reset / 60)} minutes.')
+                        time.sleep(until_reset)
                 elif resp.status_code >= 500 and num_retries < self.MAX_RETRIES:
                     LOGGER.info('api query clarabridge service errors', extra={
                         'code': resp.content['error'],
